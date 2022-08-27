@@ -1,7 +1,8 @@
 #!/usr/bin/make -f
 
 include /usr/share/dpkg/pkg-info.mk
-DKMS_SRC=debian/tmp/usr/src/hp_vendor-$(DEB_VERSION_UPSTREAM)
+STAGE_DIR=debian/tmp
+DKMS_SRC=$(STAGE_DIR)/usr/src/hp_vendor-$(DEB_VERSION_UPSTREAM)
 
 CLEAN ?= 1
 VENDOR ?= 1
@@ -30,6 +31,8 @@ override_dh_auto_install:
 	install -m 644 dkms/LICENSE $(DKMS_SRC)
 	install -m 644 dkms/Makefile $(DKMS_SRC)
 	install -m 644 dkms/hp_vendor.c $(DKMS_SRC)
+	install -d $(STAGE_DIR)/etc
+	install -m 644 etc/hp-vendor.conf $(STAGE_DIR)/etc/
 
 override_dh_dkms:
 	dh_dkms -V $(DEB_VERSION_UPSTREAM)

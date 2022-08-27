@@ -2,3 +2,4 @@ usr/lib/systemd
 usr/libexec
 usr/share/polkit-1
 var/lib/polkit-1
+etc/hp-vendor.conf

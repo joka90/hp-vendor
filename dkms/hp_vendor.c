@@ -34,6 +34,13 @@ static const struct dmi_system_id hp_vendor_dmi_table[] = {
 			DMI_MATCH(DMI_BOARD_NAME, "8A78"),
 		},
 	},
+	{
+		.ident = "HP ENVY x360 Convertible 13-ay1xxx",
+		.matches = {
+			DMI_MATCH(DMI_BOARD_VENDOR, "HP"),
+			DMI_MATCH(DMI_BOARD_NAME, "8929"),
+		},
+	},
 	{}
 };
 MODULE_DEVICE_TABLE(dmi, hp_vendor_dmi_table);
